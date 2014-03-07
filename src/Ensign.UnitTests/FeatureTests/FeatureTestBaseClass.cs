@@ -1,4 +1,5 @@
-﻿using AutoMoq;
+﻿using System.Collections.Generic;
+using AutoMoq;
 using EnsignLib.Core;
 using EnsignLib.Core.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -28,6 +29,24 @@ namespace EnsignLib.UnitTests.FeatureTests
         protected void BuildFeatureWithPercentage(int percentage)
         {
             Feature = new Feature(BackingStore.Object, FeatureName, percentage);
+        }
+
+        protected IEnumerable<IGroup> BuildFeatureWithGroups()
+        {
+            var groups = BuildGroups();
+            Feature = new Feature(BackingStore.Object, FeatureName, groups: groups);
+
+            return groups;
+        }
+
+        private static List<IGroup> BuildGroups()
+        {
+            var groups = new List<IGroup>
+            {
+                new Group("GroupOne"),
+                new Group("GroupTwo")
+            };
+            return groups;
         }
 
     }

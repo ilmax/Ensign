@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutoMoq;
 using EnsignLib.Core;
-using EnsignLib.Core.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 
 namespace EnsignLib.UnitTests
 {
@@ -16,15 +13,9 @@ namespace EnsignLib.UnitTests
 
         private Group _group;
 
-        private Mock<IFeature> _feature;
-
         [TestInitialize]
         public void Setup()
         {
-            var mocker = new AutoMoqer();
-
-            _feature = mocker.GetMock<IFeature>();
-
             _group = new Group(GroupName);
         }
 

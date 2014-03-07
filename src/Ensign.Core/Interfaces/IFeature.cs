@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace EnsignLib.Core.Interfaces
 {
@@ -12,8 +13,10 @@ namespace EnsignLib.Core.Interfaces
 
         IFeature Enable();
         IFeature EnablePercentage(int percentage);
-
         IFeature Disable();
+
+        IEnumerable<IGroup> Groups();
+        IGroup Group(string name);
 
         IFeature Save();
     }
