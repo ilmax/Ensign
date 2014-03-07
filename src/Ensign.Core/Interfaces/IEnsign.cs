@@ -1,7 +1,7 @@
-﻿namespace Ensign.Core.Interfaces
+﻿namespace EnsignLib.Core.Interfaces
 {
     public interface IEnsign
     {
-        Feature Feature(string name);
+        IFeature Feature(string name);
     }
 }

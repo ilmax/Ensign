@@ -7,8 +7,8 @@
     <ProjectGuid>{738088CD-86FC-42FF-A8DB-0C239548871F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ensign.Core</RootNamespace>
-    <AssemblyName>Ensign.Core</AssemblyName>
+    <RootNamespace>EnsignLib.Core</RootNamespace>
+    <AssemblyName>EnsignLib.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,6 +43,7 @@
     <Compile Include="Feature.cs" />
     <Compile Include="Interfaces\IFeature.cs" />
     <Compile Include="Interfaces\IEnsign.cs" />
+    <Compile Include="Interfaces\IBackingStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

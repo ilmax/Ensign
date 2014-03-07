@@ -1,9 +1,16 @@
-﻿using Ensign.Core.Interfaces;
+﻿using EnsignLib.Core.Interfaces;
 
-namespace Ensign.Core
+namespace EnsignLib.Core
 {
     public class Feature : IFeature
     {
+        public string Name { get; private set; }
+
+        public Feature(string name)
+        {
+            Name = name;
+        }
+
         public bool IsEnabled()
         {
             throw new System.NotImplementedException();

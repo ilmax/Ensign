@@ -1,7 +1,9 @@
-﻿namespace Ensign.Core.Interfaces
+﻿namespace EnsignLib.Core.Interfaces
 {
     public interface IFeature
     {
+        string Name { get; }
+
         bool IsEnabled();
         bool IsEnabledFor(int userId);
 

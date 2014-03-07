@@ -1,12 +1,21 @@
-﻿using Ensign.Core.Interfaces;
+﻿using EnsignLib.Core.Interfaces;
 
-namespace Ensign.Core
+namespace EnsignLib.Core
 {
     public class Ensign : IEnsign
     {
-        public Feature Feature(string name)
+        private readonly IBackingStore _backingStore;
+
+        public Ensign(IBackingStore backingStore)
         {
-            throw new System.NotImplementedException();
+            _backingStore = backingStore;
+        }
+
+        public IFeature Feature(string name)
+        {
+            var feature = _backingStore.Get(name);
+
+            return feature ?? new Feature(name);
         }
     }
 }

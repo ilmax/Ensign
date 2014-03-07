@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ensign.Core", "Ensign.Core\Ensign.Core.csproj", "{738088CD-86FC-42FF-A8DB-0C239548871F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnsignLib.Core", "Ensign.Core\EnsignLib.Core.csproj", "{738088CD-86FC-42FF-A8DB-0C239548871F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ensign.UnitTests", "Ensign.UnitTests\Ensign.UnitTests.csproj", "{D342E20F-C8D1-4756-8668-DD9E4BF44346}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnsignLib.UnitTests", "Ensign.UnitTests\EnsignLib.UnitTests.csproj", "{D342E20F-C8D1-4756-8668-DD9E4BF44346}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
