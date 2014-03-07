@@ -1,12 +1,25 @@
-﻿@{
+﻿@model EnsignLib.Examples.SimpleCustomBacking.Models.HomeViewModel
+
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-</div>
+@if (Model.NewSexy)
+{
+    <div class="jumbotron">
+        <h1>New Hotness</h1>
+        <p class="lead">Super awesome, but risky and untested feature.</p>
+        <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    </div>    
+}
+else
+{
+    <div class="jumbotron">
+        <h1>Ye Olde Crappy Feature</h1>
+        <p class="lead">Nobody likes this, but it's too much risk to swich all at once.</p>
+        <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    </div>    
+}
 
 <div class="row">
     <div class="col-md-4">

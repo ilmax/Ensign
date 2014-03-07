@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace Ensign.Examples.SimpleCustomBacking
+namespace EnsignLib.Examples.SimpleCustomBacking
 {
     public class FilterConfig
     {

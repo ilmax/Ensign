@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ensign.Examples.SimpleCustomBacking", "Ensign.Examples.SimpleCustomBacking\Ensign.Examples.SimpleCustomBacking.csproj", "{777A833B-7DEE-493A-AA4F-1B962413A666}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnsignLib.Examples.SimpleCustomBacking", "Ensign.Examples.SimpleCustomBacking\EnsignLib.Examples.SimpleCustomBacking.csproj", "{777A833B-7DEE-493A-AA4F-1B962413A666}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

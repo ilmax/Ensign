@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Ensign.Examples.SimpleCustomBacking.MvcApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="EnsignLib.Examples.SimpleCustomBacking.MvcApplication" Language="C#" %>

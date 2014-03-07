@@ -1,16 +1,55 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using EnsignLib.Core;
+using EnsignLib.Examples.SimpleCustomBacking.Code;
+using EnsignLib.Examples.SimpleCustomBacking.Models;
 
-namespace Ensign.Examples.SimpleCustomBacking.Controllers
+namespace EnsignLib.Examples.SimpleCustomBacking.Controllers
 {
     public class HomeController : Controller
     {
+        private SimpleSessionBackingStore _featureBacking;
+        private Ensign _ensign;
+
+        private SimpleSessionBackingStore FeatureBacking
+        {
+            get { return _featureBacking ?? (_featureBacking = new SimpleSessionBackingStore()); }
+        }
+
+        private Ensign Ensign
+        {
+            get { return _ensign ?? (_ensign = new Ensign(FeatureBacking)); }
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var viewModel = new HomeViewModel
+            {
+                NewSexy = Ensign.Feature("NewSexy").IsEnabledFor(Guid.NewGuid())
+            };
+
+            return View(viewModel);
+        }
+
+        public ActionResult SetFeatureOn()
+        {
+            var feature = Ensign.Feature("NewSexy").Enable();
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult SetFeature50()
+        {
+            var feature = Ensign.Feature("NewSexy").EnablePercentage(50);
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult SetFeatureOff()
+        {
+            var feature = Ensign.Feature("NewSexy").Disable();
+
+            return RedirectToAction("Index");
         }
 
         public ActionResult About()

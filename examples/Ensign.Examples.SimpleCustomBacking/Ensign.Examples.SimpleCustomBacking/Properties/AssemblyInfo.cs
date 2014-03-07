@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Ensign.Examples.SimpleCustomBacking")]
+[assembly: AssemblyTitle("EnsignLib.Examples.SimpleCustomBacking")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Dwolla")]
-[assembly: AssemblyProduct("Ensign.Examples.SimpleCustomBacking")]
+[assembly: AssemblyProduct("EnsignLib.Examples.SimpleCustomBacking")]
 [assembly: AssemblyCopyright("Copyright © Dwolla 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

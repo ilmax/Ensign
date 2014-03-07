@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(Ensign.Examples.SimpleCustomBacking.Startup))]
-namespace Ensign.Examples.SimpleCustomBacking
+[assembly: OwinStartupAttribute(typeof(EnsignLib.Examples.SimpleCustomBacking.Startup))]
+namespace EnsignLib.Examples.SimpleCustomBacking
 {
     public partial class Startup
     {

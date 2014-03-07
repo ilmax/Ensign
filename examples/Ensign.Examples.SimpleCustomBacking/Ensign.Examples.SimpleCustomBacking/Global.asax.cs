@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace Ensign.Examples.SimpleCustomBacking
+namespace EnsignLib.Examples.SimpleCustomBacking
 {
     public class MvcApplication : System.Web.HttpApplication
     {

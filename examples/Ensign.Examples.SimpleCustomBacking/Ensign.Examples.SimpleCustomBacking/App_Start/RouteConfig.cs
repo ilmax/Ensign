@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Ensign.Examples.SimpleCustomBacking
+namespace EnsignLib.Examples.SimpleCustomBacking
 {
     public class RouteConfig
     {

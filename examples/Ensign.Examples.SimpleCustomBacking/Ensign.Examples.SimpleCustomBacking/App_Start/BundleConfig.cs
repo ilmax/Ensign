@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Ensign.Examples.SimpleCustomBacking
+namespace EnsignLib.Examples.SimpleCustomBacking
 {
     public class BundleConfig
     {

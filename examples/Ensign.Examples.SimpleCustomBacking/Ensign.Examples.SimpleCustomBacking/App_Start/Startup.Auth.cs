@@ -3,7 +3,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 
-namespace Ensign.Examples.SimpleCustomBacking
+namespace EnsignLib.Examples.SimpleCustomBacking
 {
     public partial class Startup
     {
