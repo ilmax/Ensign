@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using AutoMoq;
 using EnsignLib.Core;
 using EnsignLib.Core.Interfaces;
@@ -10,7 +11,12 @@ namespace EnsignLib.UnitTests.FeatureTests
     [TestClass]
     public class FeatureTestBaseClass
     {
-        protected string FeatureName = "someFeature";
+        protected const string FeatureName = "someFeature";
+        protected const string GroupOne = "groupOne";
+        protected const string GroupTwo = "groupTwo";
+        protected readonly string TestUserOne = Guid.NewGuid().ToString();
+        protected readonly string TestUserTwo = Guid.NewGuid().ToString();
+
 
         protected AutoMoqer Mocker;
         protected Feature Feature;
@@ -39,12 +45,12 @@ namespace EnsignLib.UnitTests.FeatureTests
             return groups;
         }
 
-        private static List<IGroup> BuildGroups()
+        private List<IGroup> BuildGroups()
         {
             var groups = new List<IGroup>
             {
-                new Group("GroupOne"),
-                new Group("GroupTwo")
+                new Group(GroupOne).AddUser(TestUserOne),
+                new Group(GroupTwo).AddUser(TestUserTwo)
             };
             return groups;
         }

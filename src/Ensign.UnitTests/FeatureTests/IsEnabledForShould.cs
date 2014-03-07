@@ -108,6 +108,28 @@ namespace EnsignLib.UnitTests.FeatureTests
             Assert.IsTrue(actualPercentage <= (expectedPercentage + 1));
         }
 
+        [TestMethod]
+        public void ReturnTrueWhenUserIsInAnyGroup()
+        {
+            BuildFeatureWithGroups();
+            Assert.AreEqual(0, Feature.GlobalPercentage);
+
+            var result = Feature.IsEnabledFor(TestUserOne);
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void ReturnFalseWhenUserIsNotInAnyGroup()
+        {
+            BuildFeatureWithGroups();
+            Assert.AreEqual(0, Feature.GlobalPercentage);
+
+            var result = Feature.IsEnabledFor("someUnknownUser");
+
+            Assert.IsFalse(result);
+        }
+
         private static Guid BuildGuidWithLowModdingHashcode()
         {
             return Guid.Parse("97570356-e82d-4516-abdc-d91feab16542");

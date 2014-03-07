@@ -35,12 +35,7 @@ namespace EnsignLib.Core
 
         public bool IsEnabledFor(Object userId)
         {
-            if (IsMinOrMaxPercentageSet())
-            {
-                return IsEnabled();
-            }
-
-            return NonNegativeHashCodeFor(userId) % MaxPercentage < GlobalPercentage ;
+            return IsUserInPercentage(userId) || IsUserInAnyGroup(userId);
         }
 
         public IFeature Enable()
@@ -102,6 +97,23 @@ namespace EnsignLib.Core
         private static int NonNegativeHashCodeFor(object userId)
         {
             return Math.Abs(userId.GetHashCode());
+        }
+
+        private bool IsUserInPercentage(object userId)
+        {
+            if (IsMinOrMaxPercentageSet())
+            {
+                return IsEnabled();
+            }
+
+            return NonNegativeHashCodeFor(userId) % MaxPercentage < GlobalPercentage;
+        }
+
+        private bool IsUserInAnyGroup(object userId)
+        {
+            var allUsers = _groups.SelectMany(x => x.Users);
+
+            return allUsers.Contains(userId.ToString());
         }
 
     }
