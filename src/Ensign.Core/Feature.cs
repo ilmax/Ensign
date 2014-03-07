@@ -35,7 +35,7 @@ namespace EnsignLib.Core
                 return IsEnabled();
             }
 
-            return userId.GetHashCode() % MaxPercentage < GlobalPercentage ;
+            return NonNegativeHashCodeFor(userId) % MaxPercentage < GlobalPercentage ;
         }
 
         public IFeature Enable()
@@ -71,6 +71,11 @@ namespace EnsignLib.Core
         {
             return GlobalPercentage == MinPercentage 
                 || GlobalPercentage == MaxPercentage;
+        }
+
+        private static int NonNegativeHashCodeFor(object userId)
+        {
+            return Math.Abs(userId.GetHashCode());
         }
 
     }

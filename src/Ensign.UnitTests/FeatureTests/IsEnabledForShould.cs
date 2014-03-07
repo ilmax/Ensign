@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace EnsignLib.UnitTests.FeatureTests
@@ -61,7 +63,7 @@ namespace EnsignLib.UnitTests.FeatureTests
         {
             BuildFeatureWithPercentage(50);
 
-            var result = Feature.IsEnabledFor(Guid.Parse("97570356-e82d-4516-abdc-d91feab16542"));
+            var result = Feature.IsEnabledFor(BuildGuidWithLowModdingHashcode());
 
             Assert.IsTrue(result);
         }
@@ -71,9 +73,60 @@ namespace EnsignLib.UnitTests.FeatureTests
         {
             BuildFeatureWithPercentage(50);
 
-            var result = Feature.IsEnabledFor(Guid.Parse("245d6e48-730f-4e77-8c1a-60100358717c"));
+            var result = Feature.IsEnabledFor(BuildGuidWithHighModdingHashcode());
 
             Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void EnsureUserStaysEnabledWhenPercentageIsIncreased()
+        {
+            BuildFeatureWithPercentage(50);
+
+            Assert.IsTrue(Feature.IsEnabledFor(BuildGuidWithLowModdingHashcode()));
+            Assert.IsFalse(Feature.IsEnabledFor(BuildGuidWithHighModdingHashcode()));
+
+            BuildFeatureWithPercentage(97);
+
+            Assert.IsTrue(Feature.IsEnabledFor(BuildGuidWithLowModdingHashcode()));
+            Assert.IsTrue(Feature.IsEnabledFor(BuildGuidWithHighModdingHashcode()));
+        }
+
+        [TestMethod]
+        public void EnsureActualPercentageOfEnabledFeaturesIsWithinOnePercentEachWay()
+        {
+            const int expectedPercentage = 5;
+            const int totalUsers = 10000;
+
+            var users = BuildRandomGuids(totalUsers);
+            BuildFeatureWithPercentage(expectedPercentage);
+
+            var enabledCount = users.Count(userId => Feature.IsEnabledFor(userId));
+            var actualPercentage = ((decimal)enabledCount / (decimal)totalUsers) * 100;
+
+            Assert.IsTrue(actualPercentage >= (expectedPercentage - 1));
+            Assert.IsTrue(actualPercentage <= (expectedPercentage + 1));
+        }
+
+        private static Guid BuildGuidWithLowModdingHashcode()
+        {
+            return Guid.Parse("97570356-e82d-4516-abdc-d91feab16542");
+        }
+
+        private static Guid BuildGuidWithHighModdingHashcode()
+        {
+            return Guid.Parse("5d6fb4d8-042c-48e7-8e1b-d78ad0b74ecc");
+        }
+
+        private static List<Guid> BuildRandomGuids(int howMany)
+        {
+            var users = new List<Guid>();
+            for (var i = 0; i < howMany; i++)
+            {
+                users.Add(Guid.NewGuid());
+            }
+
+            return users;
         }
 
     }
