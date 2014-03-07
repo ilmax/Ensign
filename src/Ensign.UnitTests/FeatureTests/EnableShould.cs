@@ -1,0 +1,19 @@
+﻿ using Microsoft.VisualStudio.TestTools.UnitTesting;
+ using Moq;
+
+namespace EnsignLib.UnitTests.FeatureTests
+{
+    [TestClass]
+    public class EnableShould : FeatureTestBaseClass
+    {
+        [TestMethod]
+        public void SetGlobalPercentageTo100()
+        {
+            Feature.Enable();
+            
+            Assert.AreEqual(100, Feature.GlobalPercentage);
+            BackingStore.Verify(x => x.Save(Feature), Times.Once());
+        }
+
+    }
+}

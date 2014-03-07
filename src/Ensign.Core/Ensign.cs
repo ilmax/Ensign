@@ -15,7 +15,7 @@ namespace EnsignLib.Core
         {
             var feature = _backingStore.Get(name);
 
-            return feature ?? new Feature(name);
+            return feature ?? new Feature(_backingStore, name);
         }
     }
 }

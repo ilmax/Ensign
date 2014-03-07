@@ -3,6 +3,7 @@
     public interface IFeature
     {
         string Name { get; }
+        decimal GlobalPercentage { get; }
 
         bool IsEnabled();
         bool IsEnabledFor(int userId);

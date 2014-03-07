@@ -4,16 +4,27 @@ namespace EnsignLib.Core
 {
     public class Feature : IFeature
     {
-        public string Name { get; private set; }
+        private const decimal MaxPercentage = 100;
+        private const decimal MinPercentage = 0;
 
-        public Feature(string name)
+        private readonly IBackingStore _backingStore;
+
+        public string Name { get; private set; }
+        public decimal GlobalPercentage { get; private set; }
+
+        public Feature(
+            IBackingStore backingStore,
+            string name, 
+            decimal percentageEnabled = 0)
         {
+            _backingStore = backingStore;
             Name = name;
+            GlobalPercentage = percentageEnabled;
         }
 
         public bool IsEnabled()
         {
-            throw new System.NotImplementedException();
+            return !(GlobalPercentage < MaxPercentage);
         }
 
         public bool IsEnabledFor(int userId)
@@ -23,7 +34,8 @@ namespace EnsignLib.Core
 
         public void Enable()
         {
-            throw new System.NotImplementedException();
+            GlobalPercentage = MaxPercentage;
+            _backingStore.Save(this);
         }
 
         public void EnablePercentage(double percentage)
@@ -33,7 +45,8 @@ namespace EnsignLib.Core
 
         public void Disable()
         {
-            throw new System.NotImplementedException();
+            GlobalPercentage = MinPercentage;
+            _backingStore.Save(this);
         }
     }
 }
