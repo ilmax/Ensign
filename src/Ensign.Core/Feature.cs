@@ -76,6 +76,11 @@ namespace EnsignLib.Core
             return group;
         }
 
+        public void RemoveAllGroups()
+        {
+            _groups.Clear();
+        }
+
         public void RemoveGroup(string name)
         {
             var group = _groups.FirstOrDefault(x => x.Name == name);

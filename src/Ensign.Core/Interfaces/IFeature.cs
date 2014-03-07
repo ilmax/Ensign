@@ -17,6 +17,7 @@ namespace EnsignLib.Core.Interfaces
 
         IEnumerable<IGroup> Groups();
         IGroup Group(string name);
+        void RemoveAllGroups();
         void RemoveGroup(string name);
 
         IFeature Save();
