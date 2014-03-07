@@ -81,6 +81,7 @@
     <Compile Include="FeatureTests\GroupsShould.cs" />
     <Compile Include="FeatureTests\IsEnabledForShould.cs" />
     <Compile Include="FeatureTests\IsEnabledShould.cs" />
+    <Compile Include="FeatureTests\RemoveGroupShould.cs" />
     <Compile Include="FeatureTests\SaveShould.cs" />
     <Compile Include="GroupShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

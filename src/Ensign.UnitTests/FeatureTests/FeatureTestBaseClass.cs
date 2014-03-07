@@ -17,7 +17,6 @@ namespace EnsignLib.UnitTests.FeatureTests
         protected readonly string TestUserOne = Guid.NewGuid().ToString();
         protected readonly string TestUserTwo = Guid.NewGuid().ToString();
 
-
         protected AutoMoqer Mocker;
         protected Feature Feature;
 

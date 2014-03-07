@@ -22,7 +22,7 @@ namespace EnsignLib.Core
             int percentageEnabled = 0,
             List<IGroup> groups = null)
         {
-            _backingStore = backingStore;
+            _backingStore = backingStore; 
             _groups = groups ?? new List<IGroup>();
             Name = name;
             GlobalPercentage = percentageEnabled;
@@ -74,6 +74,13 @@ namespace EnsignLib.Core
             }
 
             return group;
+        }
+
+        public void RemoveGroup(string name)
+        {
+            var group = _groups.FirstOrDefault(x => x.Name == name);
+
+            if (group != null) _groups.Remove(group);
         }
 
         public IFeature Save()
