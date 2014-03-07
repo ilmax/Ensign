@@ -1,4 +1,6 @@
-﻿namespace EnsignLib.Core.Interfaces
+﻿using System;
+
+namespace EnsignLib.Core.Interfaces
 {
     public interface IFeature
     {
@@ -7,10 +9,11 @@
 
         bool IsEnabled();
         bool IsEnabledFor(int userId);
+        bool IsEnabledfor(Guid userId);
 
-        void Enable();
-        void EnablePercentage(int percentage);
+        IFeature Enable();
+        IFeature EnablePercentage(int percentage);
 
-        void Disable();
+        IFeature Disable();
     }
 }

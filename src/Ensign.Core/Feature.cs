@@ -30,15 +30,21 @@ namespace EnsignLib.Core
 
         public bool IsEnabledFor(int userId)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        public void Enable()
+        public bool IsEnabledfor(Guid userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IFeature Enable()
         {
             ChangePercentageAndSave(MaxPercentage);
+            return this;
         }
 
-        public void EnablePercentage(int percentage)
+        public IFeature EnablePercentage(int percentage)
         {
             if (percentage < MinPercentage || percentage > MaxPercentage)
             {
@@ -46,11 +52,13 @@ namespace EnsignLib.Core
             }
 
             ChangePercentageAndSave(percentage);
+            return this;
         }
 
-        public void Disable()
+        public IFeature Disable()
         {
             ChangePercentageAndSave(MinPercentage);
+            return this;
         }
 
         private void ChangePercentageAndSave(int percentage)

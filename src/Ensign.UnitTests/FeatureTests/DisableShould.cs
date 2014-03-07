@@ -12,9 +12,10 @@ namespace EnsignLib.UnitTests.FeatureTests
             BuildFeatureWithPercentage(100);
             Assert.AreEqual(100, Feature.GlobalPercentage);
 
-            Feature.Disable();
+            var result = Feature.Disable();
             
-            Assert.AreEqual(0, Feature.GlobalPercentage);
+            Assert.IsNotNull(result);
+            Assert.AreEqual(0, result.GlobalPercentage);
             BackingStore.Verify(x => x.Save(Feature), Times.Once());
         }
     }

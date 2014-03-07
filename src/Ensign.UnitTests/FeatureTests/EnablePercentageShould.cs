@@ -13,9 +13,10 @@ namespace EnsignLib.UnitTests.FeatureTests
             const int percentage = 57;
             Assert.AreEqual(0, Feature.GlobalPercentage);
 
-            Feature.EnablePercentage(percentage);
+            var result = Feature.EnablePercentage(percentage);
 
-            Assert.AreEqual(percentage, Feature.GlobalPercentage);
+            Assert.IsNotNull(result);
+            Assert.AreEqual(percentage, result.GlobalPercentage);
             BackingStore.Verify(x => x.Save(Feature), Times.Once());
         }
 

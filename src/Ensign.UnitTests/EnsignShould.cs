@@ -10,6 +10,7 @@ namespace EnsignLib.UnitTests
     public class EnsignShould
     {
         private const string FeatureName = "someFeature";
+        private const int FeaturePercentage = 57;
 
         private Ensign _ensign;
 
@@ -25,6 +26,7 @@ namespace EnsignLib.UnitTests
             _feature = mocker.GetMock<IFeature>();
 
             _feature.SetupGet(x => x.Name).Returns(FeatureName);
+            _feature.SetupGet(x => x.GlobalPercentage).Returns(FeaturePercentage);
             _backingStore.Setup(x => x.Get(FeatureName)).Returns(_feature.Object);
 
             _ensign = mocker.Resolve<Ensign>();
@@ -48,6 +50,7 @@ namespace EnsignLib.UnitTests
 
             Assert.IsNotNull(result);
             Assert.AreEqual(FeatureName, result.Name);
+            Assert.AreEqual(0, result.GlobalPercentage);
         }
 
     }

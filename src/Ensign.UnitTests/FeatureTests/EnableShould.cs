@@ -9,9 +9,10 @@ namespace EnsignLib.UnitTests.FeatureTests
         [TestMethod]
         public void SetGlobalPercentageTo100()
         {
-            Feature.Enable();
+            var result = Feature.Enable();
             
-            Assert.AreEqual(100, Feature.GlobalPercentage);
+            Assert.IsNotNull(result);
+            Assert.AreEqual(100, result.GlobalPercentage);
             BackingStore.Verify(x => x.Save(Feature), Times.Once());
         }
 
