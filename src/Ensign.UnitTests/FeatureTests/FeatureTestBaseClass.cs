@@ -26,7 +26,7 @@ namespace EnsignLib.UnitTests.FeatureTests
             Feature = new Feature(BackingStore.Object, FeatureName);
         }
 
-        protected void BuildFeatureWithPercentage(decimal percentage)
+        protected void BuildFeatureWithPercentage(int percentage)
         {
             Feature = new Feature(BackingStore.Object, FeatureName, percentage);
         }

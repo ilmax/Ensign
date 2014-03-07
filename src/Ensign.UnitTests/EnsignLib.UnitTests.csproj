@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="EnsignShould.cs" />
     <Compile Include="FeatureTests\DisableShould.cs" />
+    <Compile Include="FeatureTests\EnablePercentageShould.cs" />
     <Compile Include="FeatureTests\EnableShould.cs" />
     <Compile Include="FeatureTests\FeatureShould.cs" />
     <Compile Include="FeatureTests\FeatureTestBaseClass.cs" />

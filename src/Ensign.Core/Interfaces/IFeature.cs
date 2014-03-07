@@ -3,13 +3,13 @@
     public interface IFeature
     {
         string Name { get; }
-        decimal GlobalPercentage { get; }
+        int GlobalPercentage { get; }
 
         bool IsEnabled();
         bool IsEnabledFor(int userId);
 
         void Enable();
-        void EnablePercentage(double percentage);
+        void EnablePercentage(int percentage);
 
         void Disable();
     }

@@ -1,21 +1,22 @@
-﻿using EnsignLib.Core.Interfaces;
+﻿using System;
+using EnsignLib.Core.Interfaces;
 
 namespace EnsignLib.Core
 {
     public class Feature : IFeature
     {
-        private const decimal MaxPercentage = 100;
-        private const decimal MinPercentage = 0;
+        private const int MaxPercentage = 100;
+        private const int MinPercentage = 0;
 
         private readonly IBackingStore _backingStore;
 
         public string Name { get; private set; }
-        public decimal GlobalPercentage { get; private set; }
+        public int GlobalPercentage { get; private set; }
 
         public Feature(
             IBackingStore backingStore,
             string name, 
-            decimal percentageEnabled = 0)
+            int percentageEnabled = 0)
         {
             _backingStore = backingStore;
             Name = name;
@@ -34,19 +35,29 @@ namespace EnsignLib.Core
 
         public void Enable()
         {
-            GlobalPercentage = MaxPercentage;
-            _backingStore.Save(this);
+            ChangePercentageAndSave(MaxPercentage);
         }
 
-        public void EnablePercentage(double percentage)
+        public void EnablePercentage(int percentage)
         {
-            throw new System.NotImplementedException();
+            if (percentage < MinPercentage || percentage > MaxPercentage)
+            {
+                throw new ArgumentException("Percentage must be between 0 and 100.");
+            }
+
+            ChangePercentageAndSave(percentage);
         }
 
         public void Disable()
         {
-            GlobalPercentage = MinPercentage;
+            ChangePercentageAndSave(MinPercentage);
+        }
+
+        private void ChangePercentageAndSave(int percentage)
+        {
+            GlobalPercentage = percentage;
             _backingStore.Save(this);
         }
+
     }
 }
