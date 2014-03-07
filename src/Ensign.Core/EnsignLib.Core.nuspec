@@ -2,14 +2,14 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <version>0.0.1.1</version>
+    <title>Ensign</title>
+    <authors>Shea Daniels</authors>
+    <owners>Shea Daniels</owners>
     <licenseUrl>https://github.com/sddaniels/Ensign/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/sddaniels/Ensign</projectUrl>
-    <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <description>$description$</description>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Smart feature flags for .NET</description>
     <releaseNotes>Initial alpha release.</releaseNotes>
     <copyright>Copyright 2014</copyright>
     <tags>Ensign Features Flags Rollout Flipper</tags>
