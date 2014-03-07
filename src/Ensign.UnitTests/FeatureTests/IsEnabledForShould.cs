@@ -93,7 +93,7 @@ namespace EnsignLib.UnitTests.FeatureTests
         }
 
         [TestMethod]
-        public void EnsureActualPercentageOfEnabledFeaturesIsWithinOnePercentEachWay()
+        public void EnsureActualPercentageOfEnabledFeaturesIsPlusOrMinusOnePercent()
         {
             const int expectedPercentage = 5;
             const int totalUsers = 10000;
@@ -102,7 +102,7 @@ namespace EnsignLib.UnitTests.FeatureTests
             BuildFeatureWithPercentage(expectedPercentage);
 
             var enabledCount = users.Count(userId => Feature.IsEnabledFor(userId));
-            var actualPercentage = ((decimal)enabledCount / (decimal)totalUsers) * 100;
+            var actualPercentage = (enabledCount / (decimal)totalUsers) * 100;
 
             Assert.IsTrue(actualPercentage >= (expectedPercentage - 1));
             Assert.IsTrue(actualPercentage <= (expectedPercentage + 1));
@@ -118,7 +118,7 @@ namespace EnsignLib.UnitTests.FeatureTests
             return Guid.Parse("5d6fb4d8-042c-48e7-8e1b-d78ad0b74ecc");
         }
 
-        private static List<Guid> BuildRandomGuids(int howMany)
+        private static IEnumerable<Guid> BuildRandomGuids(int howMany)
         {
             var users = new List<Guid>();
             for (var i = 0; i < howMany; i++)

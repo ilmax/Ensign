@@ -30,7 +30,7 @@ namespace EnsignLib.Core
 
         public bool IsEnabledFor(Object userId)
         {
-            if (MinOrMaxPercentage())
+            if (IsMinOrMaxPercentageSet())
             {
                 return IsEnabled();
             }
@@ -67,7 +67,7 @@ namespace EnsignLib.Core
             _backingStore.Save(this);
         }
 
-        private bool MinOrMaxPercentage()
+        private bool IsMinOrMaxPercentageSet()
         {
             return GlobalPercentage == MinPercentage 
                 || GlobalPercentage == MaxPercentage;
