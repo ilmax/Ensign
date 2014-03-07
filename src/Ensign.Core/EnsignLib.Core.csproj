@@ -41,10 +41,13 @@
   <ItemGroup>
     <Compile Include="Ensign.cs" />
     <Compile Include="Feature.cs" />
+    <Compile Include="FeatureHydrator.cs" />
     <Compile Include="Group.cs" />
+    <Compile Include="HydrationException.cs" />
     <Compile Include="Interfaces\IFeature.cs" />
     <Compile Include="Interfaces\IEnsign.cs" />
     <Compile Include="Interfaces\IBackingStore.cs" />
+    <Compile Include="Interfaces\IFeatureHydrator.cs" />
     <Compile Include="Interfaces\IGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
