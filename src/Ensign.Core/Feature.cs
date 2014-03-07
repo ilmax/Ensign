@@ -40,8 +40,7 @@ namespace EnsignLib.Core
 
         public IFeature Enable()
         {
-            ChangePercentageAndSave(MaxPercentage);
-            return this;
+            return ChangePercentageAndSave(MaxPercentage);
         }
 
         public IFeature EnablePercentage(int percentage)
@@ -51,20 +50,24 @@ namespace EnsignLib.Core
                 throw new ArgumentException("Percentage must be between 0 and 100.");
             }
 
-            ChangePercentageAndSave(percentage);
-            return this;
+            return ChangePercentageAndSave(percentage);
         }
 
         public IFeature Disable()
         {
-            ChangePercentageAndSave(MinPercentage);
+            return ChangePercentageAndSave(MinPercentage);
+        }
+
+        public IFeature Save()
+        {
+            _backingStore.Save(this);
             return this;
         }
 
-        private void ChangePercentageAndSave(int percentage)
+        private IFeature ChangePercentageAndSave(int percentage)
         {
             GlobalPercentage = percentage;
-            _backingStore.Save(this);
+            return Save();
         }
 
         private bool IsMinOrMaxPercentageSet()

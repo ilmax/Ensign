@@ -22,7 +22,6 @@ namespace EnsignLib.UnitTests.FeatureTests
             Mocker = new AutoMoqer();
 
             BackingStore = Mocker.GetMock<IBackingStore>();
-
             Feature = new Feature(BackingStore.Object, FeatureName);
         }
 

@@ -14,5 +14,7 @@ namespace EnsignLib.Core.Interfaces
         IFeature EnablePercentage(int percentage);
 
         IFeature Disable();
+
+        IFeature Save();
     }
 }

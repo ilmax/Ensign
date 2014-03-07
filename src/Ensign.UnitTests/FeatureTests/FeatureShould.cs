@@ -6,7 +6,7 @@ namespace EnsignLib.UnitTests.FeatureTests
     public class FeatureShould : FeatureTestBaseClass
     {
         [TestMethod]
-        public void ReturnNamePassedIntoConstructor()
+        public void SetAppropriateStartupValues()
         {
             Assert.AreEqual(FeatureName, Feature.Name);
             Assert.AreEqual(0, Feature.GlobalPercentage);
