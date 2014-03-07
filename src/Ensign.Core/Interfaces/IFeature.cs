@@ -8,8 +8,7 @@ namespace EnsignLib.Core.Interfaces
         int GlobalPercentage { get; }
 
         bool IsEnabled();
-        bool IsEnabledFor(int userId);
-        bool IsEnabledfor(Guid userId);
+        bool IsEnabledFor(Object userId);
 
         IFeature Enable();
         IFeature EnablePercentage(int percentage);

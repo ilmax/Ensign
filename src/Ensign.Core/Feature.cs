@@ -28,14 +28,14 @@ namespace EnsignLib.Core
             return !(GlobalPercentage < MaxPercentage);
         }
 
-        public bool IsEnabledFor(int userId)
+        public bool IsEnabledFor(Object userId)
         {
-            throw new NotImplementedException();
-        }
+            if (MinOrMaxPercentage())
+            {
+                return IsEnabled();
+            }
 
-        public bool IsEnabledfor(Guid userId)
-        {
-            throw new NotImplementedException();
+            return userId.GetHashCode() % MaxPercentage < GlobalPercentage ;
         }
 
         public IFeature Enable()
@@ -65,6 +65,12 @@ namespace EnsignLib.Core
         {
             GlobalPercentage = percentage;
             _backingStore.Save(this);
+        }
+
+        private bool MinOrMaxPercentage()
+        {
+            return GlobalPercentage == MinPercentage 
+                || GlobalPercentage == MaxPercentage;
         }
 
     }
