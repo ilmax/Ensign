@@ -39,8 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EnsignLib.Core">
-      <HintPath>..\packages\EnsignLib.Core.0.0.2\lib\net45\EnsignLib.Core.dll</HintPath>
+    <Reference Include="EnsignLib.Core, Version=0.0.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EnsignLib.Core.0.0.3\lib\net45\EnsignLib.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />

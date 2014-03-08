@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EnsignLib.Core">
-      <HintPath>..\packages\EnsignLib.Core.0.0.1.1\lib\net45\EnsignLib.Core.dll</HintPath>
+      <HintPath>..\packages\EnsignLib.Core.0.0.3\lib\net45\EnsignLib.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

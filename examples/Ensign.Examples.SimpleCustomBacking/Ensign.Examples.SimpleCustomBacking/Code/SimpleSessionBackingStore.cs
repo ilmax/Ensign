@@ -27,7 +27,7 @@ namespace EnsignLib.Examples.SimpleCustomBacking.Code
             return FeatureHydrator.HydrateFrom(dehydrated, this);
         }
 
-        public void Save(Feature feature)
+        public void Save(IFeature feature)
         {
             HttpContext.Current.Session[BuildFeatureKey(feature.Name)] = FeatureHydrator.DehydrateToString(feature);
         }
