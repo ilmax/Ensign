@@ -3,6 +3,6 @@
     public interface IBackingStore
     {
         IFeature Get(string feature);
-        void Save(Feature feature);
+        void Save(IFeature feature);
     }
 }
