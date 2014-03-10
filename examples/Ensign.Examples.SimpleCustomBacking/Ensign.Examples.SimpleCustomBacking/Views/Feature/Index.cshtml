@@ -1,0 +1,71 @@
+﻿@model EnsignLib.Examples.SimpleCustomBacking.Models.FeatureControlPanelViewModel
+
+@{
+    ViewBag.Title = "Feature Control Panel";
+}
+
+<h2>Feature Control Panel</h2>
+
+<h3>Homepage A/B Testing</h3>
+
+<p>
+    <strong>Current status:</strong> @Model.HomepageFeature.GlobalPercentage percent on
+</p>
+
+@using (Html.BeginForm("FeatureToggle", "Feature"))
+{
+    <fieldset>
+        <legend>Toggle</legend>
+        
+        <input type="hidden" name="name" value="HomepageAB"/>
+        
+        <p>
+            @if (Model.HomepageFeature.IsEnabled())
+            {
+                <button type="submit" class="btn btn-default">Turn Off</button>
+            }
+            else
+            {
+                <button type="submit" class="btn btn-default">Turn On</button>
+            }
+        </p>
+    </fieldset>
+}
+
+@using (Html.BeginForm("HomeSetPercentage", "Feature"))
+{
+    <fieldset>
+        <legend>Enable for percentage</legend>
+        
+        <p>
+            <input id="percentage" name="percentage" type="text" />
+            <button type="submit" class="btn btn-default">Set Percentage</button>
+        </p>
+    </fieldset>
+}
+
+<h3>Logged In New Hotness</h3>
+
+<p>
+    <strong>Current status:</strong> @Model.LoggedInFeature.GlobalPercentage percent on
+</p>
+
+@using (Html.BeginForm("FeatureToggle", "Feature"))
+{
+    <fieldset>
+        <legend>Toggle</legend>
+
+        <input type="hidden" name="name" value="NewHotness" />
+        
+        <p>
+            @if (Model.LoggedInFeature.IsEnabled())
+            {
+                <button type="submit" class="btn btn-default">Turn Off</button>
+            }
+            else
+            {
+                <button type="submit" class="btn btn-default">Turn On</button>
+            }
+        </p>
+</fieldset>
+}

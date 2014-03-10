@@ -2,6 +2,6 @@
 {
     public class HomeViewModel
     {
-        public bool NewSexy { get; set; }
+        public bool HomepageB { get; set; }
     }
 }
