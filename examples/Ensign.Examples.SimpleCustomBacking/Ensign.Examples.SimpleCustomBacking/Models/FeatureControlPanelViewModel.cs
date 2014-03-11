@@ -1,4 +1,5 @@
-﻿using EnsignLib.Core.Interfaces;
+﻿using System.Collections.Generic;
+using EnsignLib.Core.Interfaces;
 
 namespace EnsignLib.Examples.SimpleCustomBacking.Models
 {
@@ -6,5 +7,6 @@ namespace EnsignLib.Examples.SimpleCustomBacking.Models
     {
         public IFeature HomepageFeature { get; set; }
         public IFeature LoggedInFeature { get; set; }
+        public IEnumerable<string> UserIds { get; set; }
     }
 }
