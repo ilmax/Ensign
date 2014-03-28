@@ -1,4 +1,6 @@
 ﻿using System.Web.Mvc;
+using System.Web.Security;
+using EnsignLib.Examples.SimpleCustomBacking.Models;
 
 namespace EnsignLib.Examples.SimpleCustomBacking.Controllers
 {
@@ -6,12 +8,25 @@ namespace EnsignLib.Examples.SimpleCustomBacking.Controllers
     {
         public ActionResult Login()
         {
-            return View();
+            return View(new LoginViewModel());
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginViewModel viewModel)
+        {
+            if (!ModelState.IsValid) return View(viewModel);
+
+            FormsAuthentication.SetAuthCookie(viewModel.Username, false);
+
+            return RedirectToAction("Index", "UserDashboard");
         }
 
         public ActionResult Logoff()
         {
-            return View();
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+
+            return RedirectToAction("Index", "Home");
         }
 	}
 }

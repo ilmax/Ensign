@@ -1,7 +1,22 @@
-﻿
+﻿@model EnsignLib.Examples.SimpleCustomBacking.Models.LoginViewModel
+
 @{
     ViewBag.Title = "Login";
 }
 
 <h2>Login</h2>
 
+<p>
+    You can log in using any username 20 characters or less.
+</p>
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post, new { role=  "form" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Username)
+        @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Username)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+}
