@@ -1,11 +1,22 @@
 ﻿@using Microsoft.AspNet.Identity
 
+@model EnsignLib.Examples.SimpleCustomBacking.Models.DashboardViewModel
+
 @{
     ViewBag.Title = "Dashboard";
 }
 
 <h2>@User.Identity.GetUserName()'s Dashboard</h2>
 
-<p>
-    todo
-</p>
+@if (Model.NewHotness)
+{
+    <div class="alert alert-info">
+        You have been granted access to a sweet new feature!
+    </div>
+}
+else
+{
+    <p>
+        You don't have any new features to try out :(
+    </p>
+}

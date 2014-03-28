@@ -24,9 +24,8 @@ namespace EnsignLib.Examples.SimpleCustomBacking.Controllers
         public ActionResult Logoff()
         {
             FormsAuthentication.SignOut();
-            Session.Abandon();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 	}
 }
